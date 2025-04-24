@@ -1,0 +1,4 @@
+build
+docs/doxygen
+
+**/__pycache__

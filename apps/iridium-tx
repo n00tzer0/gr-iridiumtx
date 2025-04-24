@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+from gnuradio import iridiumtx
+
+
+def main():
+    print("Hello World!")
+    iridiumtx.iridium_tx.main()

@@ -1,0 +1,30 @@
+find_package(PkgConfig)
+
+PKG_CHECK_MODULES(PC_GR_IRIDIUMTX gnuradio-iridiumtx)
+
+FIND_PATH(
+    GR_IRIDIUMTX_INCLUDE_DIRS
+    NAMES gnuradio/iridiumtx/api.h
+    HINTS $ENV{IRIDIUMTX_DIR}/include
+        ${PC_IRIDIUMTX_INCLUDEDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/include
+          /usr/include
+)
+
+FIND_LIBRARY(
+    GR_IRIDIUMTX_LIBRARIES
+    NAMES gnuradio-iridiumtx
+    HINTS $ENV{IRIDIUMTX_DIR}/lib
+        ${PC_IRIDIUMTX_LIBDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/lib
+          ${CMAKE_INSTALL_PREFIX}/lib64
+          /usr/lib
+          /usr/lib64
+          )
+
+include("${CMAKE_CURRENT_LIST_DIR}/gnuradio-iridiumtxTarget.cmake")
+
+INCLUDE(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(GR_IRIDIUMTX DEFAULT_MSG GR_IRIDIUMTX_LIBRARIES GR_IRIDIUMTX_INCLUDE_DIRS)
+MARK_AS_ADVANCED(GR_IRIDIUMTX_LIBRARIES GR_IRIDIUMTX_INCLUDE_DIRS)
+
