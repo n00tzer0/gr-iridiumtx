@@ -2,3 +2,6 @@ build
 docs/doxygen
 
 **/__pycache__
+
+.conda
+.vscode
