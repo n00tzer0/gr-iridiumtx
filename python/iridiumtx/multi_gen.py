@@ -56,7 +56,7 @@ class iridium_bursts_uhd(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.throttle_1 = blocks.throttle( gr.sizeof_gr_complex*1, samp_rate, True, 0 if "auto" == "auto" else max( int(float(0.1) * samp_rate) if "auto" == "time" else int(0.1), 1) )
+        # self.throttle_1 = blocks.throttle( gr.sizeof_gr_complex*1, samp_rate, True, 0 if "auto" == "auto" else max( int(float(0.1) * samp_rate) if "auto" == "time" else int(0.1), 1) )
 
         self.sigmf_sink = blocks.sigmf_sink_minimal(
             item_size=gr.sizeof_gr_complex,
@@ -154,7 +154,7 @@ class iridium_bursts_uhd(gr.top_block):
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
         self.preamble_source.set_sampling_freq(self.samp_rate)
-        self.throttle_1.set_sample_rate(self.samp_rate)
+        # self.throttle_1.set_sample_rate(self.samp_rate)
 
     def get_pld_const(self):
         return self.pld_const
