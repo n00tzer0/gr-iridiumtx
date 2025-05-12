@@ -71,8 +71,8 @@ class iridium_burst(gr.hier_block2):
         self.taps_per_filt = taps_per_filt = int(len(psf_taps)/nfilts)
         self.samp_rate = samp_rate
         self.pld_const = pld_const = digital.constellation_dqpsk().base()
-        self.pld_const.set_npwr(1)
-        self.pld_const.gen_soft_dec_lut(8)
+        # self.pld_const.set_npwr(1)
+        # self.pld_const.gen_soft_dec_lut(8)
         self.filt_delay = filt_delay = int(1+(taps_per_filt-1)//2)
         
         self.center_freq = center_freq
