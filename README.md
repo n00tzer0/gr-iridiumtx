@@ -7,13 +7,25 @@ Thus this tool can be used to generate legitimate Iridium signals to be sent ove
 Regulations for transmitting on the Iridium L-band vary by country. Use this tool responsibly ideally only inside a faraday cage. Failing to use this tool responsibly may result in criminal offense. Creators of this tool do not take responsibility for any nefarious usage of this tool.
 
 ## Installation
-### Requirements
+Installation tested on Ubuntu 22.04, Python 3.10, GNURadio 3.10.
 
 ```
-gnuradio-dev
+sudo apt install gnuradio-dev gr-osmosdr cmake libsndfile1-dev doxygen
+
+git clone https://github.com/n00tzer0/gr-iridiumtx
+cd gr-iridiumtx
+cmake -B build
+cmake --build build
+sudo cmake --install build
+sudo ldconfig
 ```
 
 
 ## Usage
-Run multi_gen.py <input file> <>
+For generating SigMF files from recorded or created Iridium traffic. The recorded text output from gr-iridium can be replayed into a SigMF file. Example of the Ring alerts are presented in the sample-data directory. 
+
+```
+python3 python/iridiumtx/multi_gen.py <input text file>
+```
+
 
